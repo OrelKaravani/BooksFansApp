@@ -1,6 +1,11 @@
 import React, {Component} from 'react'
 import BookCard from "../BookCard/BookCard";
+import styled from "styled-components";
 
+const BooksListStyle = styled.div`
+    display: flex
+    flex-direction: row
+`;
 
 class BooksList extends Component {
 
@@ -12,14 +17,14 @@ class BooksList extends Component {
         console.log("books list");
         console.log(this.props.books);
         return (
-            <div>
+            <BooksListStyle>
                 {
                     this.props.books.map(item => (
                             <BookCard key={new Date()} book={item}/>
                         )
                     )
                 }
-            </div>
+            </BooksListStyle>
         );
     }
 }
