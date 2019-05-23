@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 var router = express.Router()
 
-router.get('/', function (req, res) {
+router.get('/books', function (req, res) {
     res.json(getAllBooks());
 })
 
