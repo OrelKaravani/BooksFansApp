@@ -42,7 +42,8 @@ class Search extends Component {
             console.log(event.target.value)
             axios.get('/book/'+event.target.value)
                 .then(data => {
-                    console.log(data);
+                    console.log( data);
+                    this.props.updateBooks([data])
                 })
         }
             console.log(event.target.value)
@@ -51,8 +52,7 @@ class Search extends Component {
     render (){
         return (
             <Paper className={this.classes.root} elevation={1}>
-                <InputBase className={this.classes.input} placeholder="Try Harry Potter" onKeyPress={this.keyPressed}
-                            autoComplete={true}/>
+                <InputBase className={this.classes.input} placeholder="Try Harry Potter" onKeyPress={this.keyPressed}/>
                 <IconButton className={this.classes.iconButton} aria-label="Search">
                     <SearchIcon />
                 </IconButton>
