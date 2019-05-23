@@ -5,6 +5,7 @@ import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import axios from 'axios';
 
 const styles = {
     root: {
@@ -37,6 +38,13 @@ class Search extends Component {
 
     keyPressed = event => {
         if(event.key == 'Enter')
+        {
+            console.log(event.target.value)
+            axios.get('/book/'+event.target.value)
+                .then(data => {
+                    console.log(data);
+                })
+        }
             console.log(event.target.value)
     };
 
