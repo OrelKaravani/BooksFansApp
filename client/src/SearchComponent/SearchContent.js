@@ -9,10 +9,19 @@ const SearchStyle = styled.div`
 
 class SearchContent extends Component {
 
+    constructor(props){
+        super(props);
+    }
+
+    updateBooks = books => {
+        this.props.updateBooks(books);
+        console.log("SearchContent = "+ books);
+    };
+
     render() {
         return (
             <SearchStyle>
-                <Search />
+                <Search updateBooks={books => this.updateBooks(books)}/>
                 <SimpleSelect>
 
                 </SimpleSelect>
