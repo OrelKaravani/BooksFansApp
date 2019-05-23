@@ -32,20 +32,23 @@ class Search extends Component {
 
     constructor (props){
         super(props);
+        this.classes = props;
     }
 
-    handleChange = event => {
-
+    keyPressed = event => {
+        if(event.key == 'Enter')
+            console.log(event.target.value)
     };
 
     render (){
         return (
-            <Paper className={this.props.root} elevation={1}>
-                <InputBase className={this.props.input} placeholder="Try Harry Potter" onChange={this.handleChange}/>
-                <IconButton className={this.props.iconButton} aria-label="Search">
+            <Paper className={this.classes.root} elevation={1}>
+                <InputBase className={this.classes.input} placeholder="Try Harry Potter" onKeyPress={this.keyPressed}
+                            autoComplete={true}/>
+                <IconButton className={this.classes.iconButton} aria-label="Search">
                     <SearchIcon />
                 </IconButton>
-                <Divider className={this.props.divider} />
+                <Divider className={this.classes.divider} />
             </Paper>
         );
     }
